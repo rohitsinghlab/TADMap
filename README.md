@@ -5,7 +5,14 @@ With the advent of large-scale single-cell transcriptomic and cell type-specific
 
 ## Resources
 
-The TAD scaffold and gene groups can be downloaded from our [website](https://singhlab.net/tadmap/). Read the [documentation](https://tadmap.readthedocs.io/en/latest/overview.html).
+The TAD scaffold and gene groups are available for download from our [website](https://singhlab.net/tadmap/). We provide several useful APIs to:
+- Compute TAD signatures
+- Directly retrieve the TAD Map
+- Parse results from TAD Map files
+
+For complete documentation, please visit our [documentation page](https://tadmap.readthedocs.io/en/latest/overview.html).
+
+
 
 ## Contribute
 
