@@ -12,7 +12,9 @@ The TAD scaffold and gene groups are available for download from our [website](h
 
 For complete documentation, please visit our [documentation page](https://tadmap.readthedocs.io/en/latest/overview.html).
 
+## Figures
 
+In the figures folder, we have many scripts have been used to analyze TAD Map data and to create figures. The following are included:
 
 ## Contribute
 
