@@ -14,7 +14,7 @@ For complete installation and documentation, please visit our [documentation pag
 
 ## Figures
 
-In the figures folder, we have many scripts have been used to analyze TAD Map data and to create figures. Each Figure has its own R script, and each subfigure is labeled in those scripts. The data to create those scripts are will be uploaded to [here](https://drive.google.com/drive/folders/1inGHTN2x2L5B79l9o6xMNpYH8di-MEdC?usp=sharing).
+In the figures folder, we have many scripts have been used to analyze TAD Map data and to create figures. Each Figure has its own R script, and each subfigure is labeled in those scripts. The data used to generate the figures are found [here](https://drive.google.com/drive/folders/1inGHTN2x2L5B79l9o6xMNpYH8di-MEdC?usp=sharing).
 
 ## Contribute
 
