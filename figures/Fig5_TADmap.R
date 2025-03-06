@@ -9,13 +9,12 @@ library(showtext)
 font_add(family = "Arial", regular = "~/Arial.ttf")
 font_add_google("Ubuntu", "ubuntu")
 showtext_auto()
-setwd("~/projects/proj1/src/")
 
 ################################################################################
 # Figure 5C and Figure 5D
 ################################################################################
 
-fname <- "../data/pairRegFineTuned_YO.csv"
+fname <- "pairRegFineTuned_YO.csv"
 d <- read.csv(fname, as.is=T, nrows=5)
 colC <- rep("numeric",ncol(d))
 for (i in 1:ncol(d)) {
@@ -120,16 +119,8 @@ tot <- rbind(allTAD) %>%
 
 
 boxes1 <- grid.arrange(plot_embedding_similarity(Iall_tadcomp), ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/Fig5_12-7/TADdistanceCurve.png",
-       plot = boxes1, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig5_12-7/TADdistanceCurve.pdf",
-       plot = boxes1, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 boxes1 <- grid.arrange(plot_embedding_similarity(Ino_tad), ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/Fig5_12-7/nonTADdistanceCurve.png",
-       plot = boxes1, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig5_12-7/nonTADdistanceCurve.pdf",
-       plot = boxes1, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 ################################################################################
 # Figure 5E
@@ -226,10 +217,6 @@ b <- ggplot(comb, aes(x = tad, y = avg_corr, fill = Dataset)) +
   ) 
 
 boxes1 <- grid.arrange(b, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/Fig5/avgOldYoung.png",
-       plot = boxes1, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig5/avgOldYoung.pdf",
-       plot = boxes1, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 
 ################################################################################
@@ -451,11 +438,6 @@ b17 <- ggplot(comb2, aes(x = `non-TAD`, y = TAD, color = age_group, label = past
 
 boxes1 <- grid.arrange(b17, ncol = 1)
 
-ggsave("~/projects/proj1/data/paper_images/Fig5/avgTADnonTADCellTypeAUC.png",
-       plot = boxes1, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig5/avgTADnonTADCellTypeAUC.pdf",
-       plot = boxes1, width = 3, height = 2, dpi = 500, device = cairo_pdf)
-
 ################################################################################
 # Figure 5G
 ################################################################################
@@ -481,11 +463,6 @@ b18 <- ggplot(comb3, aes(x = category, y = overall_difference)) +
 
 boxes1 <- grid.arrange(b18, ncol = 1)
 
-ggsave("~/projects/proj1/data/paper_images/Fig5/OldYoungDiffCellTypeAUC.png",
-       plot = boxes1, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig5/OldYoungDiffCellTypeAUC.pdf",
-       plot = boxes1, width = 3, height = 2, dpi = 500, device = cairo_pdf)
-
 ################################################################################
 # Figure 5I
 ################################################################################
@@ -494,7 +471,6 @@ library(ggrepel)
 font_add(family = "Arial", regular = "~/Arial.ttf")
 font_add_google("Ubuntu", "ubuntu")
 showtext_auto()
-setwd("~/projects/proj1/src/")
 
 get_avgs <- function(df, name, corry) {
   avg_I20a <- df %>% filter(I20a == 1) %>% summarise(avg_corr = mean({{corry}}))
@@ -589,7 +565,7 @@ calculate_trap_auc <- function(df, lengths = c(20, 50, 200, 500, 1000)) {
   return(auc_result)
 }
 
-fname <- "../data/pairRegFineTuned_UNTREATED_TUM.csv"
+fname <- "pairRegFineTuned_UNTREATED_TUM.csv"
 d <- read.csv(fname, as.is=T, nrows=5)
 colC <- rep("numeric",ncol(d))
 for (i in 1:ncol(d)) {
@@ -606,7 +582,7 @@ gene_pairs_untreated <- read.csv(fname, colClasses=colC, sep=',') %>%
          sorted_cols = paste0("('", g1, "', '", g2, "')")) 
 
 
-fname <- "../data/pairRegFineTuned_TREATED_TUM.csv"
+fname <- "pairRegFineTuned_TREATED_TUM.csv"
 d <- read.csv(fname, as.is=T, nrows=5)
 colC <- rep("numeric",ncol(d))
 for (i in 1:ncol(d)) {
@@ -708,8 +684,3 @@ b17 <- ggplot(comb2, aes(x = `non-TAD`, y = TAD, color = age_group, label = past
   )
 
 boxes1 <- grid.arrange(b17, ncol = 1)
-
-ggsave("~/projects/proj1/data/paper_images/Fig5/avgTADnonTADTumorAUC.png",
-       plot = boxes1, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig5/avgTADnonTADTumorAUC.pdf",
-       plot = boxes1, width = 3, height = 2, dpi = 500, device = cairo_pdf)

@@ -1,17 +1,17 @@
 # install the following R libraries with "install.packages("").
 rm(list = ls())
-library(tidyverse)      # Used for data manipulation and dplyr operations
-library(psych)          # Used for fisherz() function
-library(gridExtra)      # Used for grid.arrange()
-library(reshape2)       # Used for melt()
-library(nord)           # Used for nord() color palette
-library(showtext)       # Used for font manipulation
-library(MASS)           # Used for kde2d()
-library(fields)         # Used for interp.surface()
-library(cocor)          # Used for cocor() function
+library(tidyverse)      
+library(psych)          
+library(gridExtra)      
+library(reshape2)       
+library(nord)           
+library(showtext)       
+library(MASS)          
+library(fields)         
+library(cocor)          
 
 # replace with your data location
-fnameA <- "../data/pair_regcoexp1.csv"
+fnameA <- "pair_regcoexp1.csv"
 d <- read.csv(fnameA, as.is = T, nrows = 5)
 colC <- rep("numeric", ncol(d))
 for (i in 1:ncol(d)) {
@@ -71,10 +71,6 @@ plot1 <- ggplot(filter(gene_pairsexp_long, Type == "normed_coexp"), aes(x = Corr
   )# Ensure y-axis title is blank
 
 plot1arr <- grid.arrange(plot1, ncol=1)
-ggsave("~/projects/proj1/data/paper_images/Fig3/coexp_spread_hist.png",
-       plot = plot1arr, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig3/coexp_spread_hist.pdf",
-       plot = plot1arr, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 
 # Create the second plot
@@ -96,17 +92,14 @@ plot2 <- ggplot(filter(gene_pairsexp_long, Type == "normed_corr"), aes(x = Corre
   )# Ensure y-axis title is blank
 
 plot2arr <- grid.arrange(plot2, ncol=1)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_spread_hist.png",
-       plot = plot2arr, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_spread_hist.pdf",
-       plot = plot2arr, width = 3, height = 2, dpi = 500, device = cairo_pdf)
+
 
 ################################################################################
 # Figure 3C
 ################################################################################
 
 # replace with your data location
-fnameA <- "../data/samChrPairs.csv"
+fnameA <- "samChrPairs.csv"
 library(cocor)
 d <- read.csv(fnameA, as.is = T, nrows = 5)
 colC <- rep("numeric", ncol(d))
@@ -191,10 +184,6 @@ b <- ggplot(results, aes(x = variable_color, y = cor, fill = variable_x)) +
   )
 
 boxes1 <- grid.arrange(b, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/Fig3/embCompAllPairs.png",
-       plot = boxes1, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig3/embCompAllPairs.pdf",
-       plot = boxes1, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 
 
@@ -246,10 +235,6 @@ p3 <- ggplot(d1, aes(x = normed_coexp, y = normed_corr)) +
 
 # Print the plot
 plot3arr <- grid.arrange(p3, ncol=1)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_coexp_dens.png",
-       plot = plot3arr, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_coexp_dens.pdf",
-       plot = plot3arr, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 ################################################################################
 # Figure 3F
@@ -291,10 +276,7 @@ p4 <- ggplot() +
     axis.title.y = element_text(size = 8, face = "bold", family = "Arial")
   )
 plot4arr <- grid.arrange(p4, ncol=1)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_coexp_pcdh.png",
-       plot = plot4arr, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_coexp_pcdh.pdf",
-       plot = plot4arr, width = 3, height = 2, dpi = 500, device = cairo_pdf)
+
 
 ################################################################################
 # Figure 3E
@@ -329,10 +311,7 @@ p5 <- ggplot() +
     axis.title.y = element_text(size = 8, face = "bold", family = "Arial")
   )
 plot5arr <- grid.arrange(p5, ncol=1)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_coexp_or.png",
-       plot = plot5arr, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_coexp_or.pdf",
-       plot = plot5arr, width = 3, height = 2, dpi = 500, device = cairo_pdf)
+
 
 ################################################################################
 # Figure 3G
@@ -369,10 +348,7 @@ p6 <- ggplot() +
   )
 
 plot6arr <- grid.arrange(p6, ncol=1)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_coexp_hist.png",
-       plot = plot6arr, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_coexp_hist.pdf",
-       plot = plot6arr, width = 3, height = 2, dpi = 500, device = cairo_pdf)
+
 
 ################################################################################
 # Figure S1
@@ -402,10 +378,6 @@ p7 <- ggplot() +
   )
 
 plot7arr <- grid.arrange(p7, ncol=1)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_coexp_krt.png",
-       plot = plot7arr, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig3/contexSim_coexp_krt.pdf",
-       plot = plot7arr, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 
 ################################################################################
@@ -499,7 +471,3 @@ for (i in 1:nrow(t_test_results)) {
 }
 
 boxes1 <- grid.arrange(box, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/Fig3/famComp_vert.png",
-       plot = boxes1, width = 2, height = 3, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig3/famComp_vert.pdf",
-       plot = boxes1, width = 2, height = 3, dpi = 500, device = cairo_pdf)

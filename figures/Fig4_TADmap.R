@@ -11,9 +11,8 @@ library(combinat)
 library(showtext)
 library(tidyverse)
 
-setwd("~/projects/GOsim/src")
-fnameA <- "../data/samChrPairs.csv"
-
+# replace with your data location
+fnameA <- "samChrPairs.csv"
 
 d <- read.csv(fnameA, as.is = T, nrows = 5)
 colC <- rep("numeric", ncol(d))
@@ -149,10 +148,6 @@ b2 <- ggplot(avg_long, aes(x = variable, y = average, fill = SameTAD)) +
   )
 
 boxes2 <- grid.arrange(b2, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/Fig4_12-4/TADPairsComp.png",
-       plot = boxes2, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig4_12-4/TADPairsComp.pdf",
-       plot = boxes2, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 ################################################################################
 # Figure 4B
@@ -163,9 +158,8 @@ library(gridExtra)
 library(ggplot2)
 library(dplyr)
 
-
-setwd("~/projects/proj1/src")
-fnameA <- "../data/pair_regcoexp1.csv"
+# replace with your data location
+fnameA <- "pair_regcoexp1.csv"
 d <- read.csv(fnameA, as.is = T, nrows = 5)
 colC <- rep("numeric", ncol(d))
 for (i in 1:ncol(d)) {
@@ -252,10 +246,6 @@ b3 <- ggplot(samChrPairs1_Grouped, aes(x = dist1_int, y = averageScGPTScore, col
   ) 
 
 boxes3 <- grid.arrange(b3, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/Fig4_12-4/DistanceGenePairsComp1.png",
-       plot = boxes3, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig4_12-4/DistanceGenePairsComp1.pdf",
-       plot = boxes3, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 ################################################################################
 # Figure 4C
@@ -318,11 +308,6 @@ b3 <- ggplot() +
     legend.spacing.y = unit(0.01, "cm")
   )
 boxes3 <- grid.arrange(b3, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/Fig4_12-4/DistanceGenePairsShrunkComp1.png",
-       plot = boxes3, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig4_12-4/DistanceGenePairsShrunkComp1.pdf",
-       plot = boxes3, width = 3, height = 2, dpi = 500, device = cairo_pdf)
-
 
 ################################################################################
 # Figure S2
@@ -377,10 +362,6 @@ b3 <- ggplot(samChrPairs1_Grouped, aes(x = dist1_int, y = averageScGPTScore, col
   ) 
 
 boxes3 <- grid.arrange(b3, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/Fig4_12-4/DistanceGenePairsCOEXP1.png",
-       plot = boxes3, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig4_12-4/DistanceGenePairsCOEXP1.pdf",
-       plot = boxes3, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 ################################################################################
 # Figure 4F
@@ -391,8 +372,6 @@ library(gridExtra)
 library(tidyverse)
 library(dplyr)
 library(gridExtra)
-
-setwd("~/projects/progVMature/")
 
 process_K562 <- function(fname) {
   d <- read.csv(fname, as.is = TRUE, nrows = 5)
@@ -503,10 +482,6 @@ b11 <- ggplot() +
 
 
 boxes11 <- grid.arrange(b11, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/Fig4_12-4/newVarFCTADnonTADaverageVar_full.png",
-       plot = boxes11, width = 3, height = 2, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/Fig4_12-4/newVarFCTADnonTADaverageVar_full.pdf",
-       plot = boxes11, width = 3, height = 2, dpi = 500, device = cairo_pdf)  
 
 ################################################################################
 # Figure 4G
@@ -562,10 +537,6 @@ b14 <- plotEnrich(f_varBottomTAD, showTerms = 8, numChar = 100, y = "Count", ord
   )
 
 boxes14 <- grid.arrange(b14, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/TADVAR_enrichRplot.png",
-       plot = boxes14, width = 3, height = 3, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/TADVAR_enrichRplot.pdf",
-       plot = boxes14, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 ################################################################################
 # Figure S3
@@ -619,16 +590,11 @@ b14 <- plotEnrich(f_varTopTAD, showTerms = 8, numChar = 100, y = "Count", orderB
   )
 
 boxes14 <- grid.arrange(b14, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/TADVAR_enrichRplot.png",
-       plot = boxes14, width = 3, height = 3, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/TADVAR_enrichRplot.pdf",
-       plot = boxes14, width = 3, height = 2, dpi = 500, device = cairo_pdf)
 
 ################################################################################
 # Figure 4H
 ################################################################################
 
-setwd("~/projects/proj1/src")
 fname <- "../data/pair_regcoexp1.csv"
 d <- read.csv(fname, as.is=T, nrows=5)
 colC <- rep("numeric",ncol(d))
@@ -778,7 +744,3 @@ b5 <- ggplot(mean_gene_pairs_sameStrand1, aes(x = factor(tad1), y = mean_corr, f
   )
 
 boxes5 <- grid.arrange(b5, ncol = 1)
-ggsave("~/projects/proj1/data/paper_images/SameStrandAdjTADPairs.png",
-       plot = boxes5, width = 3, height = 2.5, dpi = 500)
-ggsave("~/projects/proj1/data/paper_images/SameStrandAdjTADPairs.pdf",
-       plot = boxes5, width = 3, height = 2.5, dpi = 500, device = cairo_pdf)
