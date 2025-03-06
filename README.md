@@ -14,7 +14,7 @@ For complete installation and documentation, please visit our [documentation pag
 
 ## Figures
 
-In the figures folder, we have many scripts have been used to analyze TAD Map data and to create figures. Each Figure has its own R script, and each subfigure is labeled in those scripts. The data used to generate the figures are found [here](https://zenodo.org/records/14963965).
+In the figures folder, we have many scripts have been used to analyze TAD Map data and to create figures. Each Figure has its own R script, and each subfigure is labeled in those scripts. The data used to generate the figures are found [here](https://zenodo.org/records/14963965). Please first download these datasets in order to run the figure generating scripts.
 
 ## Contribute
 
